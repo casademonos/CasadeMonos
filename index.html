@@ -1941,7 +1941,7 @@ function enviarWhatsApp() {
     }
     
     let tipoTexto = '';
-    if (item.tipo === 'combo') tipoTexto = '🍟 COMBO';
+    if (item.tipo === 'combo') tipoTexto = (item.id === 'salchipapa') ? '🍟 MÁS' : '🍟 COMBO';
     else if (item.tipo === 'normal') tipoTexto = '🍽️ Normal';
     
     mensaje += `${numero}. *${item.nombre}* x${item.cantidad}`;
