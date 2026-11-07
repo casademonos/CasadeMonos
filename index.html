@@ -710,9 +710,8 @@
           <div class="item-desc">Queso cheddar fundido, cogollo europeo, tomate larga vida y cebolla fresca</div>
           <div class="precios-container">
             <span class="precio-btn normal-btn" onclick="toggleTipo(this, 'normal')">$18.000</span>
-            <span class="precio-btn combo-btn" onclick="toggleTipo(this, 'combo')">Combo $24.000</span>
+                        <span class="precio-btn combo-btn" onclick="toggleTipo(this, 'combo')">$45.000</span>
           </div>
-          <div class="combo-info">🍟🥤 El combo viene con papas y gaseosa</div>
         </div>
       </div>
       
@@ -1206,7 +1205,7 @@
         <button class="btn-toggle-seccion" onclick="togglePanel(this, 'observaciones-normal')" data-panel-btn="observaciones-normal"><span class="icono">+</span><span>Observaciones</span></button>
         <div class="panel-desplegable" data-panel="observaciones-normal"><textarea class="observaciones-area" placeholder="Ej: Sin cebolla..." oninput="guardarObservacion('salchipapa', 'normal', this.value)"></textarea></div>
       </div>
-      <div class="resumen-seccion" data-resumen="combo" onclick="expandirSeccion('salchipapa', 'combo')"><div class="resumen-header"><span>🍟 Combo - $45.000 c/u</span><span>x<span class="resumen-cantidad">0</span></span></div><div class="resumen-detalles"></div></div>
+      <div class="resumen-seccion" data-resumen="combo" onclick="expandirSeccion('salchipapa', 'combo')"><div class="resumen-header"><span>🍟 Más queso, Más tocineta, Más plátano maduro, Más aritos de cebolla</span><span>x<span class="resumen-cantidad">0</span></span></div><div class="resumen-detalles"></div></div>
       <div class="tipo-seccion" data-seccion="combo">
         <div class="tipo-row" data-tipo="combo"><div><span class="tipo-label combo-label">🍟 Combo</span><span class="tipo-precio-info">$45.000 c/u (con papas y gaseosa)</span></div><div class="quantity-controls"><button class="quantity-btn" onclick="cambiarCantidadTipo(this, -1)">−</button><span class="quantity-display">0</span><button class="quantity-btn" onclick="cambiarCantidadTipo(this, 1)">+</button></div></div>
         <div class="opcion-grupo"><div class="opcion-titulo"> Seleccionar Gaseosa:</div><select class="gaseosa-select" onchange="cambiarGaseosa('salchipapa', 'combo', this.value)"><option value="">-- Selecciona una opción --</option><option value="Colombiana">Colombiana</option><option value="Manzana">Manzana</option><option value="Coca Cola">Coca Cola</option><option value="Coca Cola Zero">Coca Cola Zero</option><option value="Quatro">Quatro</option><option value="Sprite">Sprite</option></select></div>
@@ -1943,7 +1942,8 @@ function enviarWhatsApp() {
     }
     
     let tipoTexto = '';
-    if (item.tipo === 'combo') tipoTexto = '🍟 COMBO';
+    if (item.id === 'salchipapa' && item.tipo === 'combo') tipoTexto = '🍟 Más queso, Más tocineta, Más plátano maduro, Más aritos de cebolla';
+    else if (item.tipo === 'combo') tipoTexto = '🍟 COMBO';
     else if (item.tipo === 'normal') tipoTexto = '🍽️ Normal';
     
     mensaje += `${numero}. *${item.nombre}* x${item.cantidad}`;
